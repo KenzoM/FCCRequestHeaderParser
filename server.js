@@ -19,7 +19,7 @@ app.get('/',function(req,res){
 app.get('/whoami', function(req,res){
   var ua = req.headers['user-agent'] //gets users information
   var regex = /\(([^)]+)\)/ //to get the user operating system via regex
-  var userLanguage = req.cookies['language']
+  var userLanguage = req.headers["accept-language"].split(',')[0]
   var userOS = ua.match(regex)[1]
   var userIPAddress = req.ip
   res.json({
@@ -27,6 +27,7 @@ app.get('/whoami', function(req,res){
     language: userLanguage,
     software: userOS
   })
+  console.log(userLanguage)
 })
 
 app.listen(port, function(data){
