@@ -1,4 +1,4 @@
-var sslRedirect = require('heroku-ssl-redirect');
+// var sslRedirect = require('heroku-ssl-redirect');
 var cookieParser = require('cookie-parser');
 var express = require('express');
 var path = require('path')
@@ -6,7 +6,7 @@ var app =  express();
 var port = process.env.PORT || 8000;
 
 app.use(cookieParser());
-app.use(sslRedirect())
+// app.use(sslRedirect())
 
 app.get('/',function(req,res){
   var fileName = path.join(__dirname, 'index.html');
