@@ -2,7 +2,7 @@ var cookieParser = require('cookie-parser');
 var express = require('express');
 var path = require('path')
 var app =  express();
-var port = 3000;
+var port = process.env.PORT || 8000;
 
 app.use(cookieParser());
 
